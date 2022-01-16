@@ -21,10 +21,9 @@ class MainActivity : AppCompatActivity() {
         val login_bt: Button = findViewById(R.id.login_button)
 
         //retrofit object
-        // baseURL: 서버 주소 입력, 자동적으로 응답값 JSON을 자바클래스로 변환
         var retrofit = Retrofit.Builder()
-            .baseUrl("http://192.168.219.101:8000") // 여기서 오류남 노트북이라서?
-            .addConverterFactory(GsonConverterFactory.create())
+            .baseUrl("http://192.168.219.101:8000") // baseURL: 서버 주소 입력
+            .addConverterFactory(GsonConverterFactory.create())//자동적으로 응답값 JSON을 자바클래스로 변환
             .build()
 
         val loginService = retrofit.create(LoginService::class.java)
